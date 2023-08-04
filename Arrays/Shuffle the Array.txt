@@ -1,0 +1,29 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        n  = nums.length/2;
+        int[] x = new int[n];
+        int[] y = new int[n];
+        int[] output = new int[nums.length];
+        for(int i = 0; i<n; i++)
+        {
+            x[i] = nums[i];
+        }
+        for(int j = n; j<nums.length; j++)
+        {
+            y[j-n] = nums[j];
+        }
+        int j = 0;
+        for(int i = 0; i<nums.length; i+=2)
+        {
+            output[i] = x[j];
+            j++;
+        }
+        int k = 0;
+        for(int i = 1; i<nums.length; i+=2)
+        {
+            output[i] = y[k];
+            k++;
+        }
+         return output;
+    }
+}
